@@ -1,0 +1,62 @@
+---
+import ThemeToggle from '../components/ThemeToggle.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Jarek Avi',
+  description = 'Software engineer and founder building software products and writing about engineering, product, and distribution.',
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      // Apply a saved override before paint; CSS handles the system default.
+      try {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'light' || theme === 'dark') {
+          document.documentElement.dataset.theme = theme;
+        }
+      } catch {
+        // Storage may be unavailable; the system preference still works.
+      }
+    </script>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-container site-header">
+      <a class="site-name" href="/">Jarek Avi</a>
+      <ThemeToggle />
+    </header>
+    <main id="main" class="site-container" tabindex="-1">
+      <slot />
+    </main>
+    <footer class="site-container site-footer">
+      <a href="https://x.com/JarekAvi">Twitter</a>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .site-footer {
+    padding-block: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 1rem;
+  }
+
+  .site-footer a { text-decoration: none; }
+  .site-footer a:hover { color: var(--text-primary); text-decoration: underline; }
+</style>

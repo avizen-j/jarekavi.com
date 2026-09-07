@@ -1,15 +1,51 @@
 ---
-import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectItem from '../components/ProjectItem.astro';
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Jarek Avi</title>
-  </head>
-  <body>
-    <h1>Jarek Avi</h1>
-  </body>
-</html>
+<BaseLayout>
+  <div class="homepage">
+    <section class="intro" aria-labelledby="intro-heading">
+      <img class="mb-8 block size-24 rounded-lg" src="/me.png" alt="Jarek Avi" width="96" height="96" />
+      <h1 id="intro-heading">Software engineer and founder.</h1>
+      <p>
+        I build software products and write about the engineering, product, and
+        distribution lessons behind them.
+      </p>
+    </section>
+
+    <section class="currently-building" aria-labelledby="building-heading">
+      <h2 id="building-heading">Currently building</h2>
+      <ProjectItem
+        name="Stage Captions"
+        description="Real-time captions and translation for live events."
+        url="https://stagecaptions.io"
+        icon="/images/projects/stage-captions-favicon.svg"
+      />
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .homepage {
+    width: 100%;
+    max-width: var(--prose-width);
+  }
+
+  .intro p {
+    max-width: 38rem;
+    margin-top: 1.5rem;
+    color: var(--text-secondary);
+    font-size: clamp(1.125rem, 2vw, 1.25rem);
+  }
+
+  .currently-building {
+    margin-top: clamp(3rem, 7vh, 5rem);
+  }
+
+  .currently-building h2 {
+    font-size: 1.25rem;
+    letter-spacing: -0.015em;
+  }
+
+</style>

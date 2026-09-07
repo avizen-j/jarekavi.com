@@ -1,0 +1,55 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  url: string;
+  icon: string;
+}
+
+const { name, description, url, icon } = Astro.props;
+---
+
+<div class="project">
+  <a class="project-brand" href={url} aria-label={name}>
+    <img src={icon} alt="" width="64" height="64" />
+  </a>
+  <div class="project-copy">
+    <a class="project-name" href={url}>{name}</a>
+    <p class="project-description">{description}</p>
+  </div>
+</div>
+
+<style>
+  .project {
+    display: grid;
+    grid-template-columns: 4rem minmax(0, 1fr);
+    align-items: stretch;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .project-brand {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    align-self: center;
+    aspect-ratio: 1;
+    border-radius: 5px;
+    background-color: light-dark(#000, transparent);
+  }
+
+  .project-brand img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .project-copy { min-width: 0; }
+  .project-name { display: block; }
+
+  .project-description {
+    margin: 0.5rem 0 0;
+    text-indent: 0;
+    color: var(--text-secondary);
+  }
+</style>
