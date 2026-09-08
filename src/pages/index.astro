@@ -7,11 +7,14 @@ import ProjectItem from '../components/ProjectItem.astro';
   <div class="homepage">
     <section class="intro" aria-labelledby="intro-heading">
       <img class="mb-8 block size-24 rounded-lg" src="/me.png" alt="Jarek Avi" width="96" height="96" />
-      <h1 id="intro-heading">Software engineer and founder.</h1>
-      <p>
-        I build software products and write about the engineering, product, and
-        distribution lessons behind them.
-      </p>
+      <h1 id="intro-heading">
+        <span class="intro-greeting">Hi, I'm Jarek.</span> I'm a software engineer
+        trying to make it as an indie hacker outside my 9-5.
+      </h1>
+      <div class="mt-6 space-y-1 leading-normal">
+        <p class="text-sm text-[var(--text-secondary)]">Writing about</p>
+        <p class="font-medium text-[var(--text-primary)]">Engineering · Product · Distribution</p>
+      </div>
     </section>
 
     <section class="currently-building" aria-labelledby="building-heading">
@@ -32,11 +35,20 @@ import ProjectItem from '../components/ProjectItem.astro';
     max-width: var(--prose-width);
   }
 
-  .intro p {
-    max-width: 38rem;
-    margin-top: 1.5rem;
+  .intro h1 {
     color: var(--text-secondary);
-    font-size: clamp(1.125rem, 2vw, 1.25rem);
+    font-family: var(--font-sans);
+    font-size: clamp(1.75rem, 3.2vw, 2.25rem);
+    font-weight: 400;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    text-wrap: pretty;
+  }
+
+  .intro-greeting {
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-weight: 700;
   }
 
   .currently-building {
@@ -44,8 +56,11 @@ import ProjectItem from '../components/ProjectItem.astro';
   }
 
   .currently-building h2 {
-    font-size: 1.25rem;
-    letter-spacing: -0.015em;
+    color: var(--text-secondary);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: normal;
   }
 
 </style>
