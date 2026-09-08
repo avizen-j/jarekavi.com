@@ -9,23 +9,38 @@ interface Props {
 const { name, description, url, icon } = Astro.props;
 ---
 
-<div class="project">
-  <a class="project-brand" href={url} aria-label={name}>
+<a class="project" href={url}>
+  <span class="project-brand">
     <img src={icon} alt="" width="64" height="64" />
-  </a>
-  <div class="project-copy">
-    <a class="project-name" href={url}>{name}</a>
-    <p class="project-description">{description}</p>
-  </div>
-</div>
+  </span>
+  <span class="project-copy">
+    <span class="project-name">{name}</span>
+    <span class="project-description">{description}</span>
+  </span>
+</a>
 
 <style>
   .project {
     display: grid;
     grid-template-columns: 4rem minmax(0, 1fr);
-    align-items: stretch;
+    align-items: center;
     gap: 1rem;
-    margin-top: 1rem;
+    /* Let the highlight extend outward while keeping content aligned. */
+    margin: 0.25rem -0.75rem -0.75rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+
+  @media (hover: hover) {
+    .project:hover {
+      background-color: light-dark(#ededf0, #201f25);
+    }
+  }
+
+  .project:focus-visible,
+  .project:active {
+    background-color: light-dark(#ededf0, #201f25);
   }
 
   .project-brand {
@@ -45,11 +60,16 @@ const { name, description, url, icon } = Astro.props;
   }
 
   .project-copy { min-width: 0; }
-  .project-name { display: block; }
+  .project-name {
+    display: block;
+    font-weight: 500;
+    line-height: 1.4;
+  }
 
   .project-description {
-    margin: 0.5rem 0 0;
-    text-indent: 0;
+    display: block;
+    margin-top: 0.25rem;
+    line-height: 1.5;
     color: var(--text-secondary);
   }
 </style>
