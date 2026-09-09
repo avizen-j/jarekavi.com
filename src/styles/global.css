@@ -60,9 +60,11 @@
     --background: light-dark(#f9f9f9, #08070b);
     --text-primary: light-dark(#242426, #f1f1f2);
     --text-secondary: light-dark(#626267, #a0a0a8);
+    --surface: light-dark(#ededf0, #201f25);
     --border: light-dark(#e3e3e6, #27262d);
     --selection: light-dark(#dedee3, #38363f);
-    --site-width: 60rem;
+    --site-width: 50rem;
+    --wide-image-width: 60rem;
     --prose-width: 43.75rem;
     --page-padding: clamp(1.25rem, 4vw, 2.5rem);
     --space-section: clamp(4rem, 8vw, 7rem);
@@ -79,6 +81,7 @@
   *, *::before, *::after { box-sizing: border-box; }
 
   html {
+    scrollbar-gutter: stable;
     background: var(--background);
     color: var(--text-primary);
     font-family: var(--font-sans);
@@ -123,23 +126,6 @@
   .site-container {
     width: min(var(--site-width), calc(100% - 2 * var(--page-padding)));
     margin-inline: auto;
-  }
-
-  .site-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding-block: clamp(1.25rem, 3vw, 2rem);
-    min-height: 5.25rem;
-  }
-
-  .site-name { font-size: 1.125rem; font-weight: 500; text-decoration: none; }
-  main.site-container {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    padding-block: clamp(2rem, 5vh, 4rem);
   }
 
   .skip-link {

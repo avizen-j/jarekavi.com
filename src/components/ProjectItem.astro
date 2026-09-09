@@ -34,20 +34,18 @@ const { name, description, url, icon } = Astro.props;
 
   @media (hover: hover) {
     .project:hover {
-      background-color: light-dark(#ededf0, #201f25);
+      background-color: var(--surface);
     }
   }
 
   .project:focus-visible,
   .project:active {
-    background-color: light-dark(#ededf0, #201f25);
+    background-color: var(--surface);
   }
 
   .project-brand {
     display: block;
-    position: relative;
     overflow: hidden;
-    align-self: center;
     aspect-ratio: 1;
     border-radius: 5px;
     background-color: light-dark(#000, transparent);
