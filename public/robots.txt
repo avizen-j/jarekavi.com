@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://jarekavi.com/sitemap-index.xml
