@@ -1,4 +1,4 @@
-<button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch to dark theme" hidden>
+<button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle color theme">
   <svg data-sun width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false">
     <circle cx="12" cy="12" r="4" />
     <path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" />
@@ -20,9 +20,6 @@
     const dark = isDark();
     buttons.forEach((button) => {
       button.setAttribute('aria-label', `Switch to ${dark ? 'light' : 'dark'} theme`);
-      button.querySelector('[data-sun]')?.setAttribute('style', `display: ${dark ? 'block' : 'none'}`);
-      button.querySelector('[data-moon]')?.setAttribute('style', `display: ${dark ? 'none' : 'block'}`);
-      button.hidden = false;
     });
   }
 
@@ -56,6 +53,16 @@
     cursor: pointer;
   }
 
-  .theme-toggle[hidden] { display: none; }
+  /* Select the icon before JS loads, using the same theme rules as the page. */
+  [data-sun] { display: none; }
+  [data-moon] { display: block; }
+
+  :global(html[data-theme='dark']) [data-sun] { display: block; }
+  :global(html[data-theme='dark']) [data-moon] { display: none; }
+
+  @media (prefers-color-scheme: dark) {
+    :global(html:not([data-theme])) [data-sun] { display: block; }
+    :global(html:not([data-theme])) [data-moon] { display: none; }
+  }
   .theme-toggle:hover { color: var(--text-primary); }
 </style>

@@ -4,6 +4,10 @@ import ProjectItem from '../components/ProjectItem.astro';
 ---
 
 <BaseLayout>
+  <Fragment slot="head">
+    <link rel="preload" href="/me.svg" as="image" />
+    <link rel="preload" href="/images/projects/stage-captions-favicon.svg" as="image" />
+  </Fragment>
   <div class="homepage">
     <section class="intro" aria-labelledby="intro-heading">
       <img class="mb-8 block size-24 rounded-lg" src="/me.svg" alt="Jarek Avi" width="96" height="96" />
