@@ -1,0 +1,39 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import '../styles/article.css';
+
+interface Props { article: CollectionEntry<'articles'> }
+const { article } = Astro.props;
+const { title, description, publishedDate, updatedDate, image } = article.data;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const dateFormat = new Intl.DateTimeFormat('en', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  url: canonical,
+  mainEntityOfPage: canonical,
+  author: { '@type': 'Person', '@id': new URL('/#person', Astro.site).href, name: 'Jarek Avi', url: new URL('/', Astro.site).href },
+  datePublished: publishedDate.toISOString(),
+  dateModified: (updatedDate ?? publishedDate).toISOString(),
+  ...(image && { image: new URL(image.src, Astro.site).href }),
+};
+---
+
+<BaseLayout title={`${title} | Jarek Avi`} description={description} image={image} article={{ publishedDate, updatedDate }} reading>
+  <script slot="head" is:inline type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')} />
+  <article class="article-page">
+    <header class="article-header">
+      <h1>{title}</h1>
+      <div class="article-meta">
+        <a href="/about">Jarek Avi</a>
+        <time datetime={publishedDate.toISOString()}>{dateFormat.format(publishedDate)}</time>
+        {updatedDate && <span>Updated <time datetime={updatedDate.toISOString()}>{dateFormat.format(updatedDate)}</time></span>}
+      </div>
+    </header>
+    {image && <img class="article-cover" src={image.src} alt={image.alt} />}
+    <div class="article-body"><slot /></div>
+  </article>
+</BaseLayout>

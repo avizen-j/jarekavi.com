@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const articles = (await getCollection('articles', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf());
+const dateFormat = new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+---
+
+<BaseLayout title="Articles | Jarek Avi" description="Writing about engineering, product, and distribution — lessons from building software." reading>
+  <div class="articles-index">
+    <header>
+      <h1>Notes from building.</h1>
+      <p>Writing about engineering, product, distribution, launches and whatever I learn along the indie hacking journey.</p>
+    </header>
+    <section aria-labelledby="all-articles">
+      <h2 id="all-articles">All Articles</h2>
+      <ul>
+        {articles.map(({ id, data }) => (
+          <li>
+            <a href={`/articles/${id}`}>
+              <span>{data.title}</span>
+              <time datetime={data.publishedDate.toISOString()}>{dateFormat.format(data.publishedDate)}</time>
+            </a>
+          </li>
+        ))}
+      </ul>
+      {articles.length === 0 && <p>No articles published yet.</p>}
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .articles-index { width: 100%; }
+  header p { margin-top: 2rem; color: var(--text-secondary); }
+  section { margin-top: var(--space-section); }
+  h2 { font-size: 1.5rem; }
+  ul { list-style: none; padding: 0; margin: 1rem 0 0; }
+  li + li { border-top: 1px solid var(--border); }
+  li a {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem;
+    margin-inline: -1rem; padding: 1.25rem 1rem; border-radius: 8px;
+    color: var(--text-secondary); text-decoration: none;
+  }
+  li a:hover, li a:focus-visible { background: var(--surface); color: var(--text-primary); }
+  li span { font-weight: 700; }
+  time { flex-shrink: 0; font-size: 0.875rem; }
+  @media (max-width: 40rem) { li a { flex-direction: column; gap: 0.25rem; } }
+</style>

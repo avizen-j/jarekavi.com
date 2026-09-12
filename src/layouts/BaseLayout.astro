@@ -21,7 +21,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 const socialImage = image && { url: new URL(image.src, Astro.site), alt: image.alt };
 const navigation = [
   { href: '/about', label: 'About' },
-  // { href: '/articles', label: 'Articles' },
+  { href: '/articles', label: 'Articles' },
 ];
 // Load the complete typography set consistently on every route.
 const fonts = [
