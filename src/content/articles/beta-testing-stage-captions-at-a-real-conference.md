@@ -5,7 +5,7 @@ publishedDate: 2025-11-23
 draft: false
 ---
 
-In the previous article [Co-founding Stage Captions](/articles/co-founding-stage-captions/) I mentioned a new project that we had to build for a bilingual medical conference. Well, we did it. The conference is now over, so I want to share how it went.
+In the [previous article](/articles/co-founding-stage-captions/) I mentioned a new project that we had to build for a bilingual medical conference. Well, we did it. The conference is now over, so I want to share how it went.
 
 <figure class="wide">
   <img src="/images/blog/beta-testing-stage-captions-at-a-real-conference-1.jpg" alt="Stage Captions running on a phone during a live conference" width="2500" height="1666" loading="lazy" />
