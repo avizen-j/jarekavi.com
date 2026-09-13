@@ -14,6 +14,12 @@ const articles = defineCollection({
       src: z.string().min(1),
       alt: z.string(),
     }).optional(),
+    ogImage: z.object({
+      src: z.string().min(1),
+      alt: z.string(),
+      width: z.number().int().positive().optional(),
+      height: z.number().int().positive().optional(),
+    }).optional(),
   }),
 });
 

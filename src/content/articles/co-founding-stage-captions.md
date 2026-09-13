@@ -3,6 +3,11 @@ title: "Co-founding Stage Captions"
 description: "How a Saturday coding session in Vilnius turned into the start of a real-time captioning product for live events."
 publishedDate: 2025-09-07
 draft: false
+ogImage:
+  src: "/images/blog/co-founding-stage-captions-1.webp"
+  alt: "Forum of Young Polish Medical Professionals conference screen in Vilnius"
+  width: 1920
+  height: 1080
 ---
 
 During one of our regular Saturday coding sessions at our small office in Vilnius, I had a chat with my friend Ernest. He mentioned an interesting problem he was trying to solve.

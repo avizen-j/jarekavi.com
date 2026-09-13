@@ -5,9 +5,10 @@ import '../styles/article.css';
 
 interface Props { article: CollectionEntry<'articles'> }
 const { article } = Astro.props;
-const { title, description, publishedDate, updatedDate, image } = article.data;
+const { title, description, publishedDate, updatedDate, image, ogImage } = article.data;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const dateFormat = new Intl.DateTimeFormat('en', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+const socialImage = ogImage ?? image;
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -18,11 +19,11 @@ const structuredData = {
   author: { '@type': 'Person', '@id': new URL('/#person', Astro.site).href, name: 'Jarek Avi', url: new URL('/', Astro.site).href },
   datePublished: publishedDate.toISOString(),
   dateModified: (updatedDate ?? publishedDate).toISOString(),
-  ...(image && { image: new URL(image.src, Astro.site).href }),
+  ...(socialImage && { image: new URL(socialImage.src, Astro.site).href }),
 };
 ---
 
-<BaseLayout title={`${title} | Jarek Avi`} description={description} image={image} article={{ publishedDate, updatedDate }} reading>
+<BaseLayout title={`${title} | Jarek Avi`} description={description} image={socialImage} article={{ publishedDate, updatedDate }} reading>
   <script slot="head" is:inline type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')} />
   <article class="article-page">
     <header class="article-header">

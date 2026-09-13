@@ -3,6 +3,11 @@ title: "Beta testing Stage Captions at a real conference"
 description: "How our first real conference test went, what we built, how setup worked at the venue, and what people told us afterwards."
 publishedDate: 2025-11-23
 draft: false
+ogImage:
+  src: "/images/blog/beta-testing-stage-captions-at-a-real-conference-1.webp"
+  alt: "Stage Captions running on a phone during a live conference"
+  width: 1920
+  height: 1080
 ---
 
 In the [previous article](/articles/co-founding-stage-captions/) I mentioned a new project that we had to build for a bilingual medical conference. Well, we did it. The conference is now over, so I want to share how it went.
