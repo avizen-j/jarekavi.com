@@ -14,7 +14,7 @@ In November, there will be a bilingual medical conference that he is helping org
 The problem is that some people in the Polish audience might not understand English, so we needed to think of a solution for them not to feel excluded.
 
 <figure class="wide">
-  <img src="/images/blog/co-founding-stage-captions-1.png" alt="Forum of Young Polish Medical Professionals conference screen in Vilnius" width="2560" height="1707" loading="lazy" />
+  <img src="/images/blog/co-founding-stage-captions-1.webp" alt="Forum of Young Polish Medical Professionals conference screen in Vilnius" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async" />
   <figcaption>The conference where this idea needs to work in a real setting.</figcaption>
 </figure>
 
@@ -25,7 +25,7 @@ As a Formula 1 fan, I remembered that during live broadcasts you can choose betw
 Imagine sitting in the audience, selecting your language and being able to understand the speaker on stage without knowing their language.
 
 <figure class="wide">
-  <img src="/images/blog/co-founding-stage-captions-2.png" alt="Formula 1 TV broadcast with live subtitles enabled" width="3024" height="1708" loading="lazy" />
+  <img src="/images/blog/co-founding-stage-captions-2.webp" alt="Formula 1 TV broadcast with live subtitles enabled" width="1920" height="1080" loading="lazy" decoding="async" />
   <figcaption>The Formula 1 broadcast that made the idea feel technically possible.</figcaption>
 </figure>
 
@@ -62,7 +62,7 @@ At around 6 PM, I posted a video in the chat showing how it could potentially wo
 You can tell I am not a frontend engineer from the following screenshot lol.
 
 <figure class="wide">
-  <img src="/images/blog/co-founding-stage-captions-3.png" alt="Early real-time transcription MVP with backend logs visible" width="2552" height="1438" loading="lazy" />
+  <img src="/images/blog/co-founding-stage-captions-3.webp" alt="Early real-time transcription MVP with backend logs visible" width="1920" height="1080" loading="lazy" decoding="async" />
   <figcaption>Rough MVP showing real-time transcription and translation from the backend side.</figcaption>
 </figure>
 
@@ -73,7 +73,7 @@ We discussed that one way to solve the language comprehension problem would be t
 The result looked like this:
 
 <figure class="wide">
-  <img src="/images/blog/co-founding-stage-captions-4.png" alt="Presentation slide with live original and translated captions displayed at the bottom" width="1694" height="928" loading="lazy" />
+  <img src="/images/blog/co-founding-stage-captions-4.webp" alt="Presentation slide with live original and translated captions displayed at the bottom" width="1920" height="1080" loading="lazy" decoding="async" />
   <figcaption>Mixing the slides and captions together in OBS.</figcaption>
 </figure>
 

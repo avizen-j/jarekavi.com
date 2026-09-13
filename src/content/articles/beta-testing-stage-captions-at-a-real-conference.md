@@ -8,7 +8,7 @@ draft: false
 In the [previous article](/articles/co-founding-stage-captions/) I mentioned a new project that we had to build for a bilingual medical conference. Well, we did it. The conference is now over, so I want to share how it went.
 
 <figure class="wide">
-  <img src="/images/blog/beta-testing-stage-captions-at-a-real-conference-1.jpg" alt="Stage Captions running on a phone during a live conference" width="2500" height="1666" loading="lazy" />
+  <img src="/images/blog/beta-testing-stage-captions-at-a-real-conference-1.webp" alt="Stage Captions running on a phone during a live conference" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async" />
   <figcaption>Stage Captions running during the conference.</figcaption>
 </figure>
 
@@ -47,7 +47,7 @@ On the day of the event, we arrived with our own audio interface. It was Focusri
 The plan was to ask AV engineers to route the microphone output from the mixer into our audio interface, which was connected to the laptop. It worked exceptionally well.
 
 <figure class="wide">
-  <img src="/images/blog/beta-testing-stage-captions-at-a-real-conference-2.jpg" alt="Stage setup with OBS, audio interface, and conference screen visible" width="1280" height="960" loading="lazy" />
+  <img src="/images/blog/beta-testing-stage-captions-at-a-real-conference-2.webp" alt="Stage setup with OBS, audio interface, and conference screen visible" width="1920" height="1080" loading="lazy" decoding="async" />
   <figcaption>Snippet from our preparation: audio interface, laptop, browser and OBS.</figcaption>
 </figure>
 
@@ -56,7 +56,7 @@ The plan was to ask AV engineers to route the microphone output from the mixer i
 The event started - so did the captions. Martin and I had a dedicated place where we could monitor and make sure it was working. Every time the QR code was shown on the main screen, we scanned it just to double check that captions were visible.
 
 <figure class="wide">
-  <img src="/images/blog/beta-testing-stage-captions-at-a-real-conference-3.png" alt="Stage Captions monitoring view from the balcony during the conference" width="1280" height="960" loading="lazy" />
+  <img src="/images/blog/beta-testing-stage-captions-at-a-real-conference-3.webp" alt="Stage Captions monitoring view from the balcony during the conference" width="1920" height="1080" loading="lazy" decoding="async" />
   <figcaption>Monitoring captions from our spot while the conference was running.</figcaption>
 </figure>
 
@@ -71,7 +71,7 @@ The attendees were surprised by the speed and accuracy of the captions.
 By the way, that worked especially well on smoke breaks. People could leave the venue, keep captions open on their phones and actually follow what was being presented on stage.
 
 <figure class="wide">
-  <img src="/images/blog/beta-testing-stage-captions-at-a-real-conference-4.jpg" alt="Stage Captions running across laptops and phone during the conference" width="4032" height="3024" loading="lazy" />
+  <img src="/images/blog/beta-testing-stage-captions-at-a-real-conference-4.webp" alt="Stage Captions running across laptops and phone during the conference" width="1920" height="1080" loading="lazy" decoding="async" />
   <figcaption>Testing the same live room across multiple devices.</figcaption>
 </figure>
 
