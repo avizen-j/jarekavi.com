@@ -14,7 +14,7 @@ For quite some time, Martin and I have been building something around <span clas
 
 We've already <span class="highlight">tested it during a real conference</span> and improved it based on feedback from AV engineers and attendees. Now I'm ready to properly share what it is.
 
-The project is called Stage Captions.
+The project is called [Stage Captions](https://stagecaptions.io).
 
 <figure class="wide">
   <img src="/images/blog/introducing-stage-captions-1.webp" alt="Logo with background of conference" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async" />
