@@ -31,10 +31,10 @@ const person = {
   <div class="about-story">
     <div class="about-intro">
       <img src="/me.svg" alt="Jarek Avi" width="200" height="200" />
-      <p>I'm a software engineer from Vilnius, Lithuania. I've been building backend-heavy systems while working a corporate job at a bank since 2019. However, I always had a desire to have something "for myself" and it only kept growing throughout the years. That's why most weekends, evenings and pretty much all my free time went into side projects. Later, I found out about the term "indie hacking" and that described pretty well what I would love to do full-time.</p>
+      <p>I'm a software engineer from Vilnius, Lithuania. I've been building backend-heavy systems while working a corporate job at a bank since 2019. However, I always had a desire to <span class="highlight">have something "for myself"</span> and it only kept growing throughout the years. That's why most weekends, evenings and pretty much all my free time went into side projects. Later, I found out about the term <span class="highlight">"indie hacking"</span> and that described pretty well what I would <span class="highlight">love to do full-time</span>.</p>
     </div>
     <div class="about-background">
-      <p>Speaking of my academic background, I did my Software Engineering bachelor's at Vilnius University and later DeepTech Entrepreneurship master's degree. Main reason I went for it was to get better at the business side of building tech products.</p>
+      <p>Speaking of my academic background, I did my <span class="highlight">Software Engineering</span> bachelor's at Vilnius University and later <span class="highlight">DeepTech Entrepreneurship</span> master's degree. Main reason I went for it was to get better at the business side of building tech products.</p>
       <p>Currently, I'm mostly focused on <a href="https://stagecaptions.io">stagecaptions.io</a>, which I'm building together with my co-founder Martin. We've had some successes with it, but I feel like it's still to early to leave the 9-5 and pursue it full time. Even though that's the goal.</p>
       <p>In the offline world, I love snowboarding, karting, swimming, climbing and surfing (tried once but already planning a camp). Overall, I'm definitely open to trying new things both online and offline.</p>
     </div>
@@ -46,6 +46,7 @@ const person = {
   .about-intro { display: grid; grid-template-columns: 12.5rem minmax(0, 1fr); align-items: center; gap: 2rem; }
   .about-background { margin-top: 2.5rem; }
   .about-background p + p { margin-top: 1.5rem; }
+  .highlight { color: var(--text-primary); }
   img { display: block; width: 100%; height: auto; border-radius: 8px; }
   a { color: var(--text-primary); }
   .about-story a { text-decoration: none; }
