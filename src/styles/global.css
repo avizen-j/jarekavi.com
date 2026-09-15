@@ -56,7 +56,7 @@
 
 @layer base {
   :root {
-    color-scheme: light;
+    color-scheme: dark;
     --background: light-dark(#f9f9f9, #08070b);
     --text-primary: light-dark(#242426, #f1f1f2);
     --text-secondary: light-dark(#626267, #a0a0a8);
@@ -71,11 +71,6 @@
     --space-page: clamp(3.5rem, 8vw, 7rem);
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme]) { color-scheme: dark; }
-  }
-
-  :root[data-theme='dark'] { color-scheme: dark; }
   :root[data-theme='light'] { color-scheme: light; }
 
   *, *::before, *::after { box-sizing: border-box; }

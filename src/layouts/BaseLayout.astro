@@ -41,14 +41,14 @@ const fonts = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     {fonts.map((font) => <link rel="preload" href={`/static/fonts/${font}.woff2`} as="font" type="font/woff2" crossorigin />)}
     <script is:inline>
-      // Apply a saved override before paint; CSS handles the system default.
+      // Apply a saved preference before paint; CSS defaults to dark.
       try {
         const theme = localStorage.getItem('theme');
         if (theme === 'light' || theme === 'dark') {
           document.documentElement.dataset.theme = theme;
         }
       } catch {
-        // Storage may be unavailable; the system preference still works.
+        // Storage may be unavailable; keep the dark default.
       }
     </script>
     <title>{title}</title>

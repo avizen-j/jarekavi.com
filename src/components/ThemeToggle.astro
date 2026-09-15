@@ -9,12 +9,9 @@
 </button>
 
 <script>
-  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
   const root = document.documentElement;
   const buttons = document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]');
-  const isDark = () => root.dataset.theme
-    ? root.dataset.theme === 'dark'
-    : systemTheme.matches;
+  const isDark = () => root.dataset.theme !== 'light';
 
   function updateControls() {
     const dark = isDark();
@@ -35,7 +32,6 @@
       updateControls();
     });
   });
-  systemTheme.addEventListener('change', updateControls);
   updateControls();
 </script>
 
@@ -54,15 +50,10 @@
   }
 
   /* Select the icon before JS loads, using the same theme rules as the page. */
-  [data-sun] { display: none; }
-  [data-moon] { display: block; }
+  [data-sun] { display: block; }
+  [data-moon] { display: none; }
 
-  :global(html[data-theme='dark']) [data-sun] { display: block; }
-  :global(html[data-theme='dark']) [data-moon] { display: none; }
-
-  @media (prefers-color-scheme: dark) {
-    :global(html:not([data-theme])) [data-sun] { display: block; }
-    :global(html:not([data-theme])) [data-moon] { display: none; }
-  }
+  :global(html[data-theme='light']) [data-sun] { display: none; }
+  :global(html[data-theme='light']) [data-moon] { display: block; }
   .theme-toggle:hover { color: var(--text-primary); }
 </style>
