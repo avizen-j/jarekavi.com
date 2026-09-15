@@ -3,6 +3,7 @@ title: "Introducing Stage Captions"
 description: "Introducing Stage Captions: browser-based live captioning software for real-time captions and translations at in-person events."
 publishedDate: 2026-01-05
 draft: false
+featured: true
 ogImage:
   src: "/images/blog/introducing-stage-captions-1.webp"
   alt: "Stage Captions QR code setup during the first real conference"

@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const articles = (await getCollection('articles', ({ data }) => !data.draft))
   .sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf());
+const featuredArticles = articles.filter(({ data }) => data.featured);
 const dateFormat = new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 ---
 
@@ -13,6 +14,27 @@ const dateFormat = new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric
       <h1>Notes from building</h1>
       <p>Writing about engineering, product, distribution, launches and whatever I learn along the indie hacking journey.</p>
     </header>
+    {featuredArticles.length > 0 && (
+      <section aria-labelledby="featured-articles">
+        <h2 id="featured-articles">Featured Articles</h2>
+        <div class="featured-articles">
+          {featuredArticles.map(({ id, data }) => {
+            const image = data.image ?? data.ogImage;
+            return (
+              <a class:list={['featured-card', { 'has-image': image }]} href={`/articles/${id}`}>
+                {image && <img src={image.src} alt={image.alt} width="960" height="540" />}
+                <div class="featured-copy">
+                  <time datetime={data.publishedDate.toISOString()}>{dateFormat.format(data.publishedDate)}</time>
+                  <h3>{data.title}</h3>
+                  <p>{data.description}</p>
+                  <span class="featured-read">Read article <span aria-hidden="true">↗</span></span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+    )}
     <section aria-labelledby="all-articles">
       <h2 id="all-articles">All Articles</h2>
       <ul>
@@ -35,6 +57,19 @@ const dateFormat = new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric
   header p { margin-top: 2rem; color: var(--text-secondary); }
   section { margin-top: var(--space-section); }
   h2 { font-size: 1.5rem; }
+  .featured-articles { display: grid; gap: 1.5rem; margin-top: 1.5rem; }
+  .featured-card {
+    display: grid; gap: 1.75rem; align-items: center;
+    padding: 1rem; margin-inline: -1rem; border-radius: 12px;
+    color: var(--text-secondary); text-decoration: none;
+  }
+  .featured-card.has-image { grid-template-columns: 1fr 1fr; }
+  .featured-card:hover, .featured-card:focus-visible { background: var(--surface); }
+  .featured-card img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 8px; }
+  .featured-copy { min-width: 0; }
+  .featured-copy h3 { margin-block: 0.5rem 0.75rem; }
+  .featured-copy p { font-size: 1rem; }
+  .featured-read { display: inline-block; margin-top: 1rem; font-size: 0.875rem; color: var(--text-primary); }
   ul { list-style: none; padding: 0; margin: 1rem 0 0; }
   li + li { border-top: 1px solid var(--border); }
   li a {
@@ -45,5 +80,8 @@ const dateFormat = new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric
   li a:hover, li a:focus-visible { background: var(--surface); color: var(--text-primary); }
   li span { font-weight: 700; }
   time { flex-shrink: 0; font-size: 0.875rem; }
-  @media (max-width: 40rem) { li a { flex-direction: column; gap: 0.25rem; } }
+  @media (max-width: 40rem) {
+    li a { flex-direction: column; gap: 0.25rem; }
+    .featured-card.has-image { grid-template-columns: 1fr; gap: 1.25rem; }
+  }
 </style>
