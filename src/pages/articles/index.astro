@@ -55,7 +55,8 @@ const dateFormat = new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric
 <style>
   .articles-index { width: 100%; }
   header p { margin-top: 2rem; color: var(--text-secondary); }
-  section { margin-top: var(--space-section); }
+  section { margin-top: clamp(2.5rem, 5vw, 4rem); }
+  section + section { margin-top: clamp(5rem, 12vw, 11rem); }
   h2 { font-size: 1.5rem; }
   .featured-articles { display: grid; gap: 1.5rem; margin-top: 1.5rem; }
   .featured-card {
